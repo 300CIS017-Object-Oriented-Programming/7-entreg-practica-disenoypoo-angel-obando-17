@@ -34,8 +34,8 @@ void Cliente::mostrar_compras( ) {
 }
 
 Producto* Cliente::escoger_producto( Tienda* tienda, Producto* producto ) {
-    vector<Producto*>::iterator iter = find( tienda -> mostrar_productos( ).begin( ), tienda -> mostrar_productos( ).end( ), producto );
-    if( iter != tienda -> mostrar_productos( ).end( ) ) {
+    vector<Producto*>::iterator iter = find( tienda -> get_productos( ).begin( ), tienda -> get_productos( ).end( ), producto );
+    if( iter != tienda -> get_productos( ).end( ) ) {
         return producto;
     }
 
