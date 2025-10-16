@@ -13,12 +13,12 @@ class Cliente {
         u_int  id;
         vector<Venta*> compras; 
     public:
-        Cliente( );
+        Cliente( ) = default;
         Cliente( string nombre, u_int id );
         string get_nombre( );
         u_int  get_id( );
         void mostrar_compras( );
-        void realizar_compra( Producto* producto );
+        void realizar_compra( Producto* producto, u_int cantidad );
         virtual ~Cliente( );
 };
 

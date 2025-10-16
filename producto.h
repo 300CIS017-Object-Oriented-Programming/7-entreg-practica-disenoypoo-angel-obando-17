@@ -20,7 +20,7 @@ class Producto {
         u_int   get_id( );
         float   get_precio( );  
         u_int   get_cantidad( );
-        void    modificar_cantidad( );
+        void    modificar_cantidad( u_int cantidad );
         virtual ~Producto( );
 };
 

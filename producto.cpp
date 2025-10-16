@@ -23,3 +23,7 @@ float Producto::get_precio( ) {
 u_int Producto::get_cantidad( ) {
     return this -> cantidad;
 }
+
+void Producto::modificar_cantidad( u_int cantidad ) {
+    this -> cantidad = this -> cantidad - cantidad;
+}
