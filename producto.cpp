@@ -1,6 +1,9 @@
 #include <iostream>
 #include "producto.h"
 
+using std::cout;
+using std::endl;
+
 Producto::Producto( string nombre, u_int id, float precio, u_int cantidad ) {
     this -> nombre = nombre;
     this -> id = id;
@@ -22,6 +25,16 @@ float Producto::get_precio( ) {
 
 u_int Producto::get_cantidad( ) {
     return this -> cantidad;
+}
+
+void Producto::mostrar_informacion( ) {
+    cout << "===== INFORMACION DEL PRODUCTO ====" << endl;
+    cout << "Nombre:   " << this -> nombre << endl;
+    cout << "ID:       " << this -> id << endl;
+    cout << "Cantidad: " << this -> cantidad << endl;
+    cout << "Precio:   " << this -> precio << endl;
+    cout << "===================================" << endl;
+    return;
 }
 
 void Producto::modificar_cantidad( u_int cantidad ) {
