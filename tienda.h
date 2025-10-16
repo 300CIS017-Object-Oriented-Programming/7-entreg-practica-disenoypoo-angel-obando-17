@@ -16,7 +16,7 @@ class Tienda {
         vector<Venta*>    ventas;
         
     public:
-        Tienda( );
+        Tienda( ) = default;
         Tienda( string nombre );
         string get_nombre( );
         vector<Producto*> mostrar_productos( );

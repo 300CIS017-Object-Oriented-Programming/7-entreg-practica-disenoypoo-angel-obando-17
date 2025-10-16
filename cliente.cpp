@@ -33,12 +33,10 @@ void Cliente::mostrar_compras( ) {
     return;
 }
 
-Producto* Cliente::escoger_producto( Tienda* tienda, Producto* producto, u_int cantidad ) {
+Producto* Cliente::escoger_producto( Tienda* tienda, Producto* producto ) {
     vector<Producto*>::iterator iter = find( tienda -> mostrar_productos( ).begin( ), tienda -> mostrar_productos( ).end( ), producto );
     if( iter != tienda -> mostrar_productos( ).end( ) ) {
         return producto;
-    } else {
-        cout << "El producto no esta en Stock." << endl;
     }
 
     return NULL;
