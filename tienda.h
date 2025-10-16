@@ -19,6 +19,8 @@ class Tienda {
         Tienda( );
         Tienda( string nombre );
         string get_nombre( );
+        vector<Producto*> mostrar_productos( );
+        void buscar_producto( Producto* producto );
         void registrar_venta( Venta* venta );
         void registrar_producto( Producto* producto );
         void mostrar_info( Producto* producto );

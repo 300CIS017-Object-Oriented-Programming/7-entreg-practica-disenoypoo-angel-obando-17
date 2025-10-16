@@ -4,6 +4,7 @@
 typedef unsigned int u_int;
 
 #include <string>
+#include "tienda.h"
 #include "producto.h"
 #include "cliente.h"
 
@@ -17,7 +18,7 @@ class Venta {
     public:
         Venta( );
         Venta( Cliente* cliente );
-        void nueva_venta( Cliente* cliente, Producto* producto, u_int cantidad );
+        void nueva_venta( Tienda* tienda, Cliente* cliente );
         void mostrar_resumen( );
         void calcular_total( );
         virtual ~Venta( );
