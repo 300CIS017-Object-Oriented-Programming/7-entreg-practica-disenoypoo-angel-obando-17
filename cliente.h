@@ -1,0 +1,25 @@
+#ifndef CLIENTE_H
+#define CLIENTE_H
+
+#include <vector>
+#include "Producto.h"
+#include "venta.h"
+
+using std::vector;
+
+class Cliente {
+    private:
+        string nombre;
+        u_int  id;
+        vector<Venta*> compras; 
+    public:
+        Cliente( );
+        Cliente( string nombre, u_int id );
+        string get_nombre( );
+        u_int  get_id( );
+        void mostrar_compras( );
+        void realizar_compra( Producto* producto );
+        virtual ~Cliente( );
+};
+
+#endif
