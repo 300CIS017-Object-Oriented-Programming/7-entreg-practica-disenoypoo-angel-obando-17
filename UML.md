@@ -2,7 +2,7 @@
 
 **Diagrama UML**
 
-'''mermaid
+```mermaid
 classDiagram
 
 class Tienda {
@@ -56,4 +56,4 @@ class Venta {
     Tienda o-- Venta : tiene
     Tienda o-- Producto : tiene
     Tienda o-- Cliente : tiene
-'''
+```
