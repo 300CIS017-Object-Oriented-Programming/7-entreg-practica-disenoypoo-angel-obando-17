@@ -2,7 +2,6 @@
 #define CLIENTE_H
 
 #include <vector>
-#include "tienda.h"
 #include "producto.h"
 #include "venta.h"
 
@@ -19,7 +18,7 @@ class Cliente {
         string get_nombre( );
         u_int  get_id( );
         void mostrar_compras( );
-        Producto* escoger_producto( Tienda* tienda, Producto* producto, u_int cantidad );
+        Producto* escoger_producto( Tienda* tienda, Producto* producto );
         //void realizar_compra( Tienda* tienda );
         virtual ~Cliente( );
 };

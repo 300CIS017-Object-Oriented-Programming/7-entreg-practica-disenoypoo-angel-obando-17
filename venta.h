@@ -9,18 +9,19 @@ typedef unsigned int u_int;
 #include "cliente.h"
 
 using std::string;
-
+using std::pair;
 class Venta {
     private:
         Cliente* cliente;
-        vector< std::pair<Producto*, u_int> > productos;
+        vector< pair<Producto*, u_int> > productos;
         float total;
     public:
-        Venta( );
+        Venta( ) = default;
         Venta( Cliente* cliente );
-        void nueva_venta( Tienda* tienda, Cliente* cliente );
+        Cliente* get_cliente( );
+        void nueva_venta( Tienda* tienda, Producto* producto, u_int cantidad  );
         void mostrar_resumen( );
-        void calcular_total( );
+        float calcular_total( );
         virtual ~Venta( );
 };
 
