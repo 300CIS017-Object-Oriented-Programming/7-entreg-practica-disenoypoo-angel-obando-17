@@ -14,7 +14,7 @@ class Producto {
         float  precio;
         u_int  cantidad; 
     public:
-        Producto( );
+        Producto( ) = default;
         Producto( string nombre, u_int id, float precio, u_int cantidad );
         string  get_nombre( );
         u_int   get_id( );
