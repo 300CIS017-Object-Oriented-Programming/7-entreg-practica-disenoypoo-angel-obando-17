@@ -1,6 +1,8 @@
 ## Diagrama UML de la solucion propuesta.
 
-'''Mermaid
+**Diagrama UML**
+
+'''mermaid
 classDiagram
 
 class Tienda {
