@@ -80,3 +80,10 @@ void Venta::calcular_total( ) {
 
     return;
 }
+
+Venta::~Venta( ) {
+    delete this -> cliente;
+    for( int i = 0; i < this -> productos.size( ); i++ ) {
+        delete this -> productos[ i ].first;
+    }
+}

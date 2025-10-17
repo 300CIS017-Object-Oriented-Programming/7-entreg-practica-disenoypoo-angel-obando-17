@@ -36,3 +36,9 @@ void Cliente::mostrar_compras( ) {
 
     return;
 }
+
+Cliente::~Cliente( ) {
+    for( int i = 0; i < this -> compras.size( ); i++ ) {
+        delete this -> compras[ i ];
+    }
+}

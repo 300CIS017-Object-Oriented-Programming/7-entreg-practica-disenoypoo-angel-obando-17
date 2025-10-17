@@ -133,3 +133,17 @@ float Tienda::calcular_total( ) {
     cout << "Total:     " << total << endl;
     return total;
 }
+
+Tienda::~Tienda( ) {
+    for( int i = 0; i < this -> productos.size( ); i++ ) {
+        delete this -> productos[ i ];
+    }
+
+    for( int j = 0; j < this -> clientes.size( ); j++ ) {
+        delete this -> clientes[ j ];
+    }
+
+    for( int k = 0; k < this -> ventas.size( ); k++ ) {
+        delete this -> ventas[ k ];
+    }
+}
