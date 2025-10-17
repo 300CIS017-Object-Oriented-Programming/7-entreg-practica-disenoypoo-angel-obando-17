@@ -3,4 +3,4 @@ project(POOSistemaGestionVentas)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(POOSistemaGestionVentas main.cpp)
+add_executable(POOSistemaGestionVentas main.cpp producto.cpp cliente.cpp venta.cpp tienda.cpp)
