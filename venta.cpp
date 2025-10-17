@@ -18,9 +18,9 @@ Cliente* Venta::get_cliente( ) {
 void Venta::nueva_venta( Tienda* tienda ) {
     cout << "====== Escoger Productos ======" << endl;
     tienda -> mostrar_catalogo( );
-    cout << "Ingrese el ID del producto que desea ( 0 para salir ): " << endl;
     u_int opc;
     do {
+        cout << "Ingrese el ID del producto que desea ( 0 para salir ): " << endl;
         cin >> opc;
         bool found = false;
         Producto* producto;
@@ -46,12 +46,9 @@ void Venta::nueva_venta( Tienda* tienda ) {
             } else {
                 cout << "No hay unidades del producto escogido." << endl;
             }
-        } else {
+        } else if( opc != 0 ) {
             cout << "El ID del producto no se encuentra registrado." << endl;
-        }
-        cout << "Ingrese el ID del producto que desea ( 0 para salir ): " << endl;
-        cin >> opc;
-    
+        }   
     } while( opc != 0 );
 
 

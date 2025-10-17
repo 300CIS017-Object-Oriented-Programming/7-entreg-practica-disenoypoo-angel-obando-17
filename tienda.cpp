@@ -96,7 +96,7 @@ void Tienda::mostrar_info( Producto* producto ) {
 }
 
 void Tienda::mostrar_catalogo( ) {
-    cout << "===== Catalogo de la Tienda ====" << endl;
+    cout << "===== Catalogo de la Tienda =====" << endl;
     for( int i = 0; i < this -> productos.size( ); i++ ) {
         Producto* actual = this -> productos[ i ];
         actual -> mostrar_informacion( );
