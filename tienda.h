@@ -27,11 +27,11 @@ class Tienda {
         vector<Producto*> get_productos( );
         void mostrar_clientes( );
         void registrar_venta( );
-        void registrar_producto( Producto* producto );
+        void registrar_producto( );
         void mostrar_info( string nombre_producto );
         void mostrar_catalogo( );
         void actualizar_producto( string nombre_producto, u_int cantidad );
-        void registrar_cliente( Cliente* cliente );
+        void registrar_cliente( );
         void mostrar_historial( string nombre_cliente );
         float calcular_total( );
         virtual ~Tienda( );

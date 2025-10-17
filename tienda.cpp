@@ -78,8 +78,34 @@ void Tienda::registrar_venta( ) {
     return;
 }
 
-void Tienda::registrar_producto( Producto* producto ) {
-    this -> productos.push_back( producto );
+void Tienda::registrar_producto( ) {
+    string nombre;
+    u_int id;
+    u_int cantidad;
+    float precio;
+    cout << "Ingrese el nombre del producto: " << endl;
+    cin >> nombre;
+    cout << "Ingrese el ID para el producto: " << endl;
+    cin >> id;
+
+    bool found = false;
+    for( int i = 0; i < this -> productos.size( ) && !found; i++ ) {
+        if( id == this -> productos[ i ] -> get_id( ) ) {
+            found = true;
+        }
+    }
+
+    if( !found ) {
+        cout << "Ingrese la cantidad de productos que van a haber en Stock: " << endl;
+        cin >> cantidad;
+        cout << "Ingrese el precio del producto: " << endl;
+        cin >> precio;
+        Producto* producto = new Producto( nombre, id, precio, cantidad );
+        this -> productos.push_back( producto );
+        cout << "Producto registrado con exito!" << endl;
+    } else {
+        cout << "El ID escogido ya esta uso." << endl;
+    }
     return;
 }
 
@@ -129,14 +155,29 @@ void Tienda::actualizar_producto( string nombre_producto, u_int cantidad ) {
     }
 }
 
-void Tienda::registrar_cliente( Cliente* cliente ) {
-    vector<Cliente*>::iterator iter = find( this -> clientes.begin( ), this -> clientes.end( ), cliente );
-    if( iter == this -> clientes.end( ) ) {
-        this -> clientes.push_back( cliente );
-        return;
-    } else {
-        cout << "El cliente ya esta registrado"  << endl;
+void Tienda::registrar_cliente( ) {
+    string nombre;
+    u_int id;
+    cout << "Ingresar nombre del Cliente: " << endl;
+    cin >> nombre;
+    cout << "Ingresar ID para el Cliente: " << endl;
+    cin >> id;
+    bool found = false;
+    for( int i = 0; i < this -> clientes.size( ) && !found; i++ ) {
+        if( id == this -> clientes[ i ] -> get_id( ) ) {
+            found = true;
+        }
     }
+
+    if( !found ) {
+        Cliente* cliente = new Cliente( nombre, id );
+        this -> clientes.push_back( cliente );
+        cout << "Cliente registrado con exito!" << endl;
+    } else {
+        cout << "El ID escogido ya esta uso." << endl;
+    }
+
+    return; 
 }
 
 void Tienda::mostrar_historial( string nombre_cliente ) {
