@@ -104,7 +104,7 @@ void Tienda::registrar_producto( ) {
         this -> productos.push_back( producto );
         cout << "Producto registrado con exito!" << endl;
     } else {
-        cout << "El ID escogido ya esta uso." << endl;
+        cout << "El ID escogido ya esta en uso." << endl;
     }
     return;
 }
