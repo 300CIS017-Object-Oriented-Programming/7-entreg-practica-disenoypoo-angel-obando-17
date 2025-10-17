@@ -83,13 +83,20 @@ void Tienda::registrar_producto( Producto* producto ) {
     return;
 }
 
-void Tienda::mostrar_info( Producto* producto ) {
-    vector<Producto*>::iterator iter = find( this -> productos.begin( ), this -> productos.end( ), producto );
-    if( iter != this -> productos.end( ) ) {
-        (*iter) -> mostrar_informacion( );
-        return;
+void Tienda::mostrar_info( string nombre_producto ) {
+    bool found = false;
+    Producto* producto;
+    for( int i = 0; i < this -> productos.size( ) && !false; i++ ) {
+        if( this -> productos[ i ] -> get_nombre( ) == nombre_producto ) {
+            producto = this -> productos[ i ];
+            found = true;
+        }
+    }
+
+    if( found ) {
+        producto -> mostrar_informacion( );
     } else {
-        cout << "El producto no esta en Stock"  << endl;
+        cout << "El producto no esta en el Stock de la Tienda." << endl;
     }
 
     return;
@@ -105,13 +112,20 @@ void Tienda::mostrar_catalogo( ) {
     return;
 }
 
-void Tienda::actualizar_producto( Producto* producto, u_int cantidad ) {
-    vector<Producto*>::iterator iter = find( this -> productos.begin( ), this -> productos.end( ), producto );
-    if( iter != this -> productos.end( ) ) {
-        (*iter) -> modificar_cantidad( cantidad );
-        return;
+void Tienda::actualizar_producto( string nombre_producto, u_int cantidad ) {
+    bool found = false;
+    Producto* producto;
+    for( int i = 0; i < this -> productos.size( ) && !found; i++ ) {
+        if( this -> productos[ i ] -> get_nombre( ) == nombre_producto ) {
+            producto = this -> productos[ i ];
+            found = true;
+        }
+    }
+
+    if( found ) {
+        producto -> modificar_cantidad( cantidad );
     } else {
-        cout << "El producto no esta en Stock"  << endl;
+        cout << "El producto no esta en el Stock de la Tienda." << endl;
     }
 }
 
@@ -125,13 +139,20 @@ void Tienda::registrar_cliente( Cliente* cliente ) {
     }
 }
 
-void Tienda::mostrar_historial( Cliente* cliente ) {
-    vector<Cliente*>::iterator iter = find( this -> clientes.begin( ), this -> clientes.end( ), cliente );
-    if( iter != this -> clientes.end( ) ) {
-        (*iter) -> mostrar_compras( );
-        return;
+void Tienda::mostrar_historial( string nombre_cliente ) {
+    bool found = false;
+    Cliente* cliente;
+    for( int i = 0; i < this -> clientes.size( ) && !found; i++ ) {
+        if( this -> clientes[ i ] -> get_nombre( ) == nombre_cliente ) {
+            cliente = this -> clientes[ i ];
+            found = true;
+        }
+    }
+
+    if( found ) {
+        cliente -> mostrar_compras( );
     } else {
-        cout << "El cliente no esta registrado en la tienda"  << endl;
+        cout << "El cliente no esta registrado en la Tienda." << endl;
     }
 }
 

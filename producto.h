@@ -22,6 +22,7 @@ class Producto {
         u_int   get_cantidad( );
         void    mostrar_informacion( );
         void    modificar_cantidad( u_int cantidad );
+        void    restar_cantidad( u_int cantidad );
 };
 
 #endif

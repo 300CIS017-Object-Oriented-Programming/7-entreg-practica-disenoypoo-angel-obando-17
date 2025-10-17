@@ -38,5 +38,17 @@ void Producto::mostrar_informacion( ) {
 }
 
 void Producto::modificar_cantidad( u_int cantidad ) {
-    this -> cantidad = this -> cantidad - cantidad;
+    cout << "Cantidad modificada con Exito!" << endl;
+    this -> cantidad = cantidad;
+    return;
+}
+
+void Producto::restar_cantidad( u_int cantidad ) {
+    if( cantidad <= this -> cantidad ) {
+        this -> cantidad = this -> cantidad - cantidad;
+    } else {
+        cout << "La cantidad escogida es mayor que lo que hay en Stock." << endl;
+    }
+
+    return;
 }

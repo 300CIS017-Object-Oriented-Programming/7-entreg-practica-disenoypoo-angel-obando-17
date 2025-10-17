@@ -40,7 +40,7 @@ void Venta::nueva_venta( Tienda* tienda ) {
                     cout << "No hay suficiente cantidad en Stock." << endl;
                 } else {
                     this -> productos.push_back( { producto, cantidad } );
-                    producto -> modificar_cantidad( cantidad );
+                    producto -> restar_cantidad( cantidad );
                     this -> calcular_total( );
                 }
             } else {
