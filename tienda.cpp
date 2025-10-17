@@ -197,7 +197,7 @@ void Tienda::mostrar_historial( string nombre_cliente ) {
     }
 }
 
-float Tienda::calcular_total( ) {
+void Tienda::calcular_total( ) {
     cout << "==== TOTAL EN TIENDA ====" << endl;
     float total = 0;
     for( int i = 0; i < this -> productos.size( ); i++ ) {
@@ -206,7 +206,7 @@ float Tienda::calcular_total( ) {
         total += actual -> get_precio( ) * actual -> get_cantidad( );
     }
     cout << "Total:     " << total << endl;
-    return total;
+    return;
 }
 
 Tienda::~Tienda( ) {

@@ -33,7 +33,7 @@ class Tienda {
         void actualizar_producto( string nombre_producto, u_int cantidad );
         void registrar_cliente( );
         void mostrar_historial( string nombre_cliente );
-        float calcular_total( );
+        void calcular_total( );
         virtual ~Tienda( );
 };
 
