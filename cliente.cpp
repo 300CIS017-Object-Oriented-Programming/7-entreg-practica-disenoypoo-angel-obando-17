@@ -23,6 +23,16 @@ void Cliente::agregar_compra( Venta* venta ) {
     this -> compras.push_back( venta );
 }
 
+void Cliente::mostrar_info( ) {
+    cout << "=================================" << endl;
+    cout << "Nombre: " << this -> nombre << endl;
+    cout << "ID:     " << this -> id << endl;
+    cout << "Tiene " << this -> compras.size( ) << " registradas." << endl; 
+    cout << "=================================" << endl;
+    
+    return;
+}
+
 void Cliente::mostrar_compras( ) {
     if( this -> compras.empty( ) ) {
         cout << this -> nombre << " - No tiene compras registradas" << endl;

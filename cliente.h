@@ -17,6 +17,7 @@ class Cliente {
         string get_nombre( );
         u_int  get_id( );
         void agregar_compra( Venta* venta );
+        void mostrar_info( );
         void mostrar_compras( );
         virtual ~Cliente( );
 };

@@ -25,6 +25,7 @@ class Tienda {
         void InicializarDatos( );
         string get_nombre( );
         vector<Producto*> get_productos( );
+        void mostrar_clientes( );
         void registrar_venta( );
         void registrar_producto( Producto* producto );
         void mostrar_info( Producto* producto );

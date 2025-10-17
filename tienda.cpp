@@ -39,6 +39,19 @@ vector<Producto*> Tienda::get_productos( ) {
     return this -> productos;
 }
 
+void Tienda::mostrar_clientes( ) {
+    if( !this -> clientes.empty( ) ) {
+        cout << "===== Cliente Registrados en la Tienda " << this -> nombre << " =====" << endl;
+        for( int i = 0; i < this -> clientes.size( ); i++ ) {
+            this -> clientes[ i ] -> mostrar_info( );
+        }
+    } else {
+        cout << "No hay clientes registrados en la tienda." <<  endl;
+    }
+
+    return;
+}
+
 void Tienda::registrar_venta( ) {
     string nombre;
     cout << "Ingrese su nombre de usuario: " << endl;
