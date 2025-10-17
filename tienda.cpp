@@ -174,7 +174,7 @@ void Tienda::registrar_cliente( ) {
         this -> clientes.push_back( cliente );
         cout << "Cliente registrado con exito!" << endl;
     } else {
-        cout << "El ID escogido ya esta uso." << endl;
+        cout << "El ID escogido ya esta en uso." << endl;
     }
 
     return; 
