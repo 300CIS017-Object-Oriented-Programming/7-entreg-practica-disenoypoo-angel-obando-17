@@ -1,14 +1,35 @@
 #include <iostream>
 #include <algorithm>
+#include "producto.h"
+#include "cliente.h"
 #include "tienda.h"
 
 using std::find;
 using std::cout;
+using std::cin;
 using std::endl;
 
 Tienda::Tienda( string nombre ) {
     this -> nombre = nombre;
 }
+
+void Tienda::InicializarDatos( ) {
+    Producto* producto1 = new Producto( "Galleta", 1, 2.50, 10 );
+    Producto* producto2 = new Producto( "Gaseosa", 2, 3.0, 20 );
+    Producto* producto3 = new Producto( "Pastel", 3, 5.2, 5 );
+    Producto* producto4 = new Producto( "Empanada", 4, 1.5, 15 );
+    Cliente* cliente1 = new Cliente( "Samuel", 1 );
+    Cliente* cliente2 = new Cliente( "Angel", 2 );
+    Cliente* cliente3 = new Cliente( "Katalina", 3 );
+    this -> productos.push_back( producto1 );
+    this -> productos.push_back( producto2 );
+    this -> productos.push_back( producto3 );
+    this -> productos.push_back( producto4 );
+    this -> clientes.push_back( cliente1 );
+    this -> clientes.push_back( cliente2 );
+    this -> clientes.push_back( cliente3 );
+}
+
 
 string Tienda::get_nombre( ) {
     return this -> nombre;
@@ -18,8 +39,29 @@ vector<Producto*> Tienda::get_productos( ) {
     return this -> productos;
 }
 
-void Tienda::registrar_venta( Venta* venta ) {
-    this -> ventas.push_back( venta );
+void Tienda::registrar_venta( ) {
+    string nombre;
+    cout << "Ingrese su nombre de usuario: " << endl;
+    cin >> nombre;
+    Cliente* cliente;
+    bool found = false;
+    for( int i = 0; i < this -> clientes.size( ) && !found; i++ ) {
+        Cliente* actual = this -> clientes[ i ];
+        if( actual -> get_nombre( ) == nombre ) {
+            found = true;
+            cliente = actual;
+        }
+    }
+
+    if( found ) {
+        Venta* venta = new Venta( cliente );
+        venta -> nueva_venta( this );
+        this -> ventas.push_back( venta );
+        cliente -> agregar_compra( venta ); 
+    } else { 
+        cout << "El usuario no esta registrado." << endl;
+    }
+
     return;
 }
 
@@ -36,6 +78,18 @@ void Tienda::mostrar_info( Producto* producto ) {
     } else {
         cout << "El producto no esta en Stock"  << endl;
     }
+
+    return;
+}
+
+void Tienda::mostrar_catalogo( ) {
+    cout << "===== Catalogo de la Tienda ====" << endl;
+    for( int i = 0; i < this -> productos.size( ); i++ ) {
+        Producto* actual = this -> productos[ i ];
+        actual -> mostrar_informacion( );
+    }
+
+    return;
 }
 
 void Tienda::actualizar_producto( Producto* producto, u_int cantidad ) {

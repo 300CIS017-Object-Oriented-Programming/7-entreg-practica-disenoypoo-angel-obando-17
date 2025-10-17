@@ -1,7 +1,10 @@
 #include <iostream>
+#include "producto.h"
+#include "cliente.h"
 #include "venta.h"
 
 using std::cout;
+using std::cin;
 using std::endl;
 
 Venta::Venta( Cliente* cliente ) {
@@ -12,18 +15,45 @@ Cliente* Venta::get_cliente( ) {
     return this -> cliente;
 }
 
-void Venta::nueva_venta( Tienda* tienda, Producto* producto, u_int cantidad ) {
-    Producto* nuevo_producto = this -> get_cliente( ) -> escoger_producto( tienda, producto );
-    if( nuevo_producto != NULL ) {
-        if( cantidad < nuevo_producto -> get_cantidad( ) ) {
-            this -> productos.push_back( { producto, cantidad } );
-            nuevo_producto -> modificar_cantidad( cantidad );
-        } else {
-            cout << "No hay suficientes unidades disponibles." << endl;
+void Venta::nueva_venta( Tienda* tienda ) {
+    cout << "====== Escoger Productos ======" << endl;
+    tienda -> mostrar_catalogo( );
+    cout << "Ingrese el ID del producto que desea ( 0 para salir ): " << endl;
+    u_int opc;
+    do {
+        cin >> opc;
+        bool found = false;
+        Producto* producto;
+        for( int i = 0; i < tienda -> get_productos( ).size( ) && !found; i++ ) {
+            if( tienda -> get_productos( )[ i ] -> get_id( ) == opc ) {
+                found = true;
+                producto = tienda -> get_productos( )[ i ];
+            }
         }
-    } else{ 
-        cout << "El producto no esta en Stock." << endl;
-    }
+
+        if( found ) {
+            if( producto -> get_cantidad( ) > 0 ) {
+                u_int cantidad;
+                cout << "Ingrese la cantidad: " << endl;
+                cin >> cantidad;
+                if( cantidad > producto -> get_cantidad( ) ) {
+                    cout << "No hay suficiente cantidad en Stock." << endl;
+                } else {
+                    this -> productos.push_back( { producto, cantidad } );
+                    producto -> modificar_cantidad( cantidad );
+                    this -> calcular_total( );
+                }
+            } else {
+                cout << "No hay unidades del producto escogido." << endl;
+            }
+        } else {
+            cout << "El ID del producto no se encuentra registrado." << endl;
+        }
+        cout << "Ingrese el ID del producto que desea ( 0 para salir ): " << endl;
+        cin >> opc;
+    
+    } while( opc != 0 );
+
 
     return;
 }
@@ -35,16 +65,18 @@ void Venta::mostrar_resumen( ) {
         float subtotal = actual -> get_precio( ) * this -> productos[ i ].second;
         cout <<  actual -> get_id( ) << ". " << actual -> get_nombre( ) << "\t x " << this -> productos[ i ].second << " " << subtotal << endl;
     }
-    cout << "Total: \t\t" << this -> calcular_total( ) << endl;
+    cout << "Total: \t\t" << this -> total << endl;
     cout << "=================================" << endl;
 
     return;
 }
 
-float Venta::calcular_total( ) {
+void Venta::calcular_total( ) {
+    float total = 0;
     for( int i = 0; i < this -> productos.size( ); i++ ) {
-        this -> total += productos[ i ].first -> get_precio( );
+        total += productos[ i ].first -> get_precio( );
     }
+    this -> total = total;
 
     return;
 }

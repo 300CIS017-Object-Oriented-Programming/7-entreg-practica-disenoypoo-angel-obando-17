@@ -10,6 +10,11 @@ typedef unsigned int u_int;
 
 using std::string;
 using std::pair;
+using std::vector;
+
+class Cliente;
+class Tienda;
+
 class Venta {
     private:
         Cliente* cliente;
@@ -19,9 +24,9 @@ class Venta {
         Venta( ) = default;
         Venta( Cliente* cliente );
         Cliente* get_cliente( );
-        void nueva_venta( Tienda* tienda, Producto* producto, u_int cantidad  );
+        void nueva_venta( Tienda* tienda );
         void mostrar_resumen( );
-        float calcular_total( );
+        void calcular_total( );
         virtual ~Venta( );
 };
 

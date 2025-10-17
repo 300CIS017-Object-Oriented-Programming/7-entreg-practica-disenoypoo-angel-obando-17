@@ -19,9 +19,13 @@ u_int Cliente::get_id( ) {
     return this -> id;
 }
 
+void Cliente::agregar_compra( Venta* venta ) {
+    this -> compras.push_back( venta );
+}
+
 void Cliente::mostrar_compras( ) {
     if( this -> compras.empty( ) ) {
-        cout << "No tiene compras registradas" << endl;
+        cout << this -> nombre << " - No tiene compras registradas" << endl;
         return;
     } else {
         cout << "======= Compras hechas por: " << this -> nombre << " =======" << endl;
@@ -32,35 +36,3 @@ void Cliente::mostrar_compras( ) {
 
     return;
 }
-
-Producto* Cliente::escoger_producto( Tienda* tienda, Producto* producto ) {
-    vector<Producto*>::iterator iter = find( tienda -> get_productos( ).begin( ), tienda -> get_productos( ).end( ), producto );
-    if( iter != tienda -> get_productos( ).end( ) ) {
-        return producto;
-    }
-
-    return NULL;
-}
-
-/*
-void Cliente::realizar_compra( Tienda* tienda ) {
-    cout << "====== Productos de la tienda ======" << endl;
-    for( int i = 0; i < tienda -> mostrar_productos( ).size( ); i++ ) {
-        Producto* actual = tienda -> mostrar_productos( )[ i ];
-        if( actual -> get_cantidad( ) > 0 ) {
-            cout << actual -> get_id( ) << ". " << actual -> get_nombre( ) << ", Cantidad: " << actual -> get_cantidad( ) << endl;  
-        }
-    }
-
-    if( ) {
-        cout << "No hay suficientes cantidades del producto " << producto -> get_nombre( ) << " en Stock." << endl;
-        return;
-    } else {
-        Venta* nueva_venta = new Venta;
-        nueva_venta -> nueva_venta( tienda, this );
-        this -> compras.push_back( nueva_venta );
-    }
-
-    return;
-}
-*/
