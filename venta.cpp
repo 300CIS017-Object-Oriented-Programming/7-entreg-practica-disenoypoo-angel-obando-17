@@ -60,7 +60,7 @@ void Venta::mostrar_resumen( ) {
     for( int i = 0; i < this -> productos.size( ); i++ ) {  
         Producto* actual = this -> productos[ i ].first;
         float subtotal = actual -> get_precio( ) * this -> productos[ i ].second;
-        cout <<  actual -> get_id( ) << ". " << actual -> get_nombre( ) << "\t x " << this -> productos[ i ].second << " " << subtotal << endl;
+        cout <<  actual -> get_id( ) << ". " << actual -> get_nombre( ) << "\t x " << this -> productos[ i ].second << " - Subtotal: " << subtotal << endl;
     }
     cout << "Total: \t\t" << this -> total << endl;
     cout << "=================================" << endl;
@@ -71,7 +71,7 @@ void Venta::mostrar_resumen( ) {
 void Venta::calcular_total( ) {
     float total = 0;
     for( int i = 0; i < this -> productos.size( ); i++ ) {
-        total += productos[ i ].first -> get_precio( );
+        total += productos[ i ].first -> get_precio( ) * productos[ i ].second;
     }
     this -> total = total;
 

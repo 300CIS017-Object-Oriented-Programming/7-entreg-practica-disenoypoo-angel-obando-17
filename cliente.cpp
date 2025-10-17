@@ -27,7 +27,7 @@ void Cliente::mostrar_info( ) {
     cout << "=================================" << endl;
     cout << "Nombre: " << this -> nombre << endl;
     cout << "ID:     " << this -> id << endl;
-    cout << "Tiene " << this -> compras.size( ) << " registradas." << endl; 
+    cout << "Tiene " << this -> compras.size( ) << " compras registradas." << endl; 
     cout << "=================================" << endl;
     
     return;
